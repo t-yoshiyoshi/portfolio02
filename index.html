@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PORTFOLIO — Visual Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400&family=Shippori+Mincho:wght@400;500&family=EB+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #fdfcfb;
+  --bg-2:     #EEEAE2;
+  --bg-3:     #E5E1D8;
+  --bg-dark:  #9f7996;
+  --bg-dark2: #9f7996;
+  --ink:      #161616;
+  --ink-2:    #6a625a;
+  --ink-3:    #A4A09A;
+  --ink-4:    #C8C4BC;
+  --line:     rgba(28,28,26,.08);
+  --line2:    rgba(28,28,26,.14);
+  --serif-jp: 'Shippori Mincho','Noto Serif JP',serif;
+  --serif-en: "Lato", sans-serif;
+  --sans:     'Jost',sans-serif;
+  --ease:     cubic-bezier(.22,.1,.22,1);
+  --ease-out: cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif-jp);font-weight:300;overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;}
+
+/* CURSOR */
+.cur{position:fixed;top:0;left:0;width:6px;height:6px;background:var(--ink);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s,opacity .3s;}
+.crg{position:fixed;top:0;left:0;width:28px;height:28px;border:1px solid var(--ink);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.22;transition:width .35s var(--ease-out),height .35s var(--ease-out),opacity .3s;}
+.crg.ex{width:50px;height:50px;opacity:.12;}
+.cur.ex{transform:translate(-50%,-50%) scale(0);opacity:0;}
+
+/* LOADER */
+.loader{position:fixed;inset:0;background:var(--bg-dark);z-index:10000;display:flex;align-items:center;justify-content:center;transition:opacity .9s var(--ease),visibility .9s;}
+.loader.out{opacity:0;visibility:hidden;}
+.ldr-en{font-family:var(--serif-en);font-size:clamp(1.1rem,3.5vw,2rem);font-weight:300;font-style:italic;letter-spacing:.28em;color:rgba(255, 255, 255, 0.059);animation:fIn 1.1s var(--ease-out) .2s forwards;opacity:0;}
+.ldr-jp{display:block;margin-top:.5rem;font-family:var(--serif-jp);font-size:1em;font-weight:300;letter-spacing:.45em;color:rgba(252, 249, 242, 0.08);animation:fIn .9s var(--ease-out) .7s forwards;opacity:0;}
+.ldr-bar{width:0;height:1px;background:rgba(245,243,238,.16);margin:1.6rem auto 0;animation:bar 1.5s var(--ease-out) .4s forwards;}
+@keyframes fIn{to{opacity:1;}}
+@keyframes bar{to{width:100px;}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:2.2rem 5vw;display:flex;justify-content:space-between;align-items:center;transition:background .5s,padding .4s;}
+nav.st{padding-top:1.3rem;padding-bottom:1.3rem;background:rgba(245,243,238,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);}
+.nav-logo{font-family:var(--serif-jp);font-size:.78rem;font-weight:400;letter-spacing:.35em;color:var(--ink);text-decoration:none;}
+.nav-ul{display:flex;gap:2.8rem;list-style:none;}
+.nav-ul a{font-family:var(--sans);font-size:.8em;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);text-decoration:none;transition:color .3s;}
+.nav-ul a:hover{color:var(--ink);}
+
+/* HERO */
+.hero{
+    height: 100vh;
+    min-height: 600px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+  }
+.h-bg{    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, #e3b74a 0%, #A8A49C 25%, #f1e0f9 55%, #503d3b 100%);
+    filter: saturate(.55) brightness(.9);
+    transform: scale(1.04);
+    transition: transform 10s ease;}
+.h-bg.ld{transform:scale(1);}
+.h-ov{
+  position:absolute;inset:0;
+  background-image: url(https://t-yoshiyoshi.github.io/portfolio/img/bg_top.jpg);
+  /*background:linear-gradient(to bottom,rgba(66,63,65,.06) 0%,rgba(223,170,214,.01) 40%,rgba(151,64,132,.48) 100%);*/
+}
+.h-copy{position:relative;z-index:2;padding:0 5vw 9vh;max-width:860px;}
+.h-eye{
+  font-family: var(--sans);
+    font-size: 1em;
+    font-weight: 300;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: rgb(112 105 97);
+    margin-top: 2em;
+    margin-bottom: 1.6rem;
+    opacity: 0;
+    animation: hUp .8s var(--ease-out) 2.3s forwards;
+}
+.h-ttl{
+font-family: var(--serif-en);
+    font-size: clamp(2.6rem, 8vw, 6.5rem);
+    font-weight: 400;
+    margin: 5px 0;
+    font-size: 3.2em;
+    line-height: .94;
+    color: rgb(255 255 255 / 81%);
+    letter-spacing: -.01em;
+    /* text-shadow: 0px 0px 20px #a6a6a6b0;*/
+  }
+.h-ttl .w{display:inline-block;opacity:0;transform:translateY(28px);}
+.h-ttl .w:nth-child(1){animation:hUp .9s var(--ease-out) 2.4s forwards;}
+.h-ttl .w:nth-child(2){animation:hUp .9s var(--ease-out) 2.55s forwards;font-style:italic;}
+.h-ttl .w:nth-child(3){animation:hUp .9s var(--ease-out) 2.7s forwards;}
+.h-sub{margin-top:1.8rem;font-family:var(--sans);font-size:.7em;font-weight:300;color:rgba(245,238,244,.46);letter-spacing:.2em;line-height:2;opacity:0;animation:hUp .8s var(--ease-out) 3s forwards;}
+.h-scrl{position:absolute;right:5vw;bottom:9vh;z-index:2;display:flex;flex-direction:column;align-items:center;gap:.7rem;opacity:0;animation:hUp .8s var(--ease-out) 3.2s forwards;}
+.h-scrl span{font-family:var(--sans);font-size:.8em;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,238,245,.42);writing-mode:vertical-rl;}
+.stk{width:1px;height:38px;background:rgba(245,243,238,.18);position:relative;overflow:hidden;}
+.stk::after{content:'';position:absolute;left:0;top:-100%;width:100%;height:100%;background:rgba(245,243,238,.45);animation:td 2s ease-in-out 3.4s infinite;}
+@keyframes hUp{to{opacity:1;transform:translateY(0);}}
+@keyframes td{0%{top:-100%}100%{top:200%}}
+
+/* SECTION */
+.sec{padding:10vh 5vw;}
+.shd{display:flex;align-items:baseline;gap:1.6rem;margin-bottom:6rem;}
+.snum{font-family:var(--sans);font-size:.5rem;font-weight:300;letter-spacing:.18em;color:var(--ink-3);}
+.stitle{font-family:var(--serif-jp);font-size:clamp(1.3rem,2.8vw,2.1rem);font-weight:400;letter-spacing:.12em;color:var(--ink);}
+.stitle-en{font-family:var(--serif-en);font-size:2em;font-weight:500;font-style:italic;letter-spacing:.1em;color:var(--ink-3);margin-left:.5rem;}
+.srule{flex:1;height:1px;background:var(--line2);margin-left:.8rem;}
+
+/* TABS */
+.tabs{display:flex;gap:0;margin-bottom:5rem;border-bottom:1px solid var(--line2);overflow-x:auto;}
+.tab{padding:1rem 2.2rem;font-family:var(--sans);font-size:1em;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);background:none;border:none;cursor:none;position:relative;transition:color .3s;white-space:nowrap;}
+.tab::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:var(--ink);transform:scaleX(0);transition:transform .4s var(--ease);}
+.tab.on{color:var(--ink);}
+.tab.on::after{transform:scaleX(1);}
+.tab:hover{color:var(--ink-2);}
+
+/* PANELS */
+.panel{display:none;}
+.panel.on{display:block;}
+.plbl{font-family:var(--sans);font-size:1em;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-2);margin-bottom:4rem;display:flex;align-items:center;gap:1.2rem;}
+.plbl::before{content:'';width:20px;height:1px;background:var(--ink-4);}
+
+/* FEATURED */
+.feat{display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    cursor: none;}
+.feat.flip{grid-template-columns:1fr 1.5fr;}
+.feat.flip .fi{order:2;}
+.feat.flip .finfo{order:1;}
+.fi{position:relative;overflow:hidden;}
+.fi::before{content:'';display:block;padding-top:68%;}
+.fi-in{position:absolute;inset:0;overflow:hidden;}
+
+/* ★ FIX: .fi-in > div のハードコードbgを削除。各パネルのHTMLで個別に指定 */
+.fi-in > div {
+    width: 50%;
+    height: 100%;
+    transition: transform 1s var(--ease-out);
+}
+.feat:hover .fi-in > div{transform:scale(1.035);}
+
+.fbadge{position:absolute;top:0;left:0;z-index:3;padding:.5rem 1rem;background:var(--bg-dark);color:rgba(245,243,238,.5);font-family:var(--sans);font-size:.47rem;font-weight:300;letter-spacing:.22em;text-transform:uppercase;}
+.finfo{padding:1rem 0;}
+.fcat{font-family:var(--sans);font-size:.5rem;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3);margin-bottom:1.4rem;}
+.ftitle{font-family:var(--serif-jp);font-size:clamp(1.3rem,2.4vw,1.9rem);font-weight:400;line-height:1.6;letter-spacing:.06em;color:var(--ink);margin-bottom:1.6rem;}
+.ftitle_02{font-family:var(--serif-jp);font-size:clamp(1.3rem,2.4vw,1.9rem);font-weight:400;line-height:1.6;letter-spacing:.06em;color:var(--ink);margin-bottom:1.6rem;}
+.ftitle_02:hover{color:#c741af}
+.id-pass{
+    font-family: sans-serif;
+    font-size: 1.2em;
+    font-weight: 400;
+    margin-bottom: 1em;
+}
+
+.fdesc{font-size:1em;font-weight:300;line-height:2.15;color:var(--ink-2);margin-bottom:2rem;letter-spacing:.04em;}
+.ftags{display:flex;gap:.55rem;flex-wrap:wrap;margin-bottom:2.4rem;}
+.tag{font-family:var(--sans);font-size:.47rem;font-weight:300;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);border:1px solid var(--line2);padding:.26rem .68rem;}
+.bmore{display:inline-flex;align-items:center;gap:.9rem;font-family:var(--sans);font-size:.56rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);text-decoration:none;cursor:none;position:relative;}
+.bmore::after{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:1px;background:var(--ink);transform-origin:right;transition:transform .5s var(--ease);}
+.bmore:hover::after{transform:scaleX(0);transform-origin:left;}
+.barr{transition:transform .4s var(--ease);display:inline-block;}
+.bmore:hover .barr{transform:translateX(5px);}
+.dvd{height:1px;background:var(--line);margin:5rem 0;}
+
+/* GRID */
+.wg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem 2rem;}
+.wg.c4{grid-template-columns:repeat(4,1fr);}
+.wc{cursor:none;}
+.wci{position:relative;overflow:hidden;background:var(--bg-2);}
+.wci::before{content:'';display:block;padding-top:72%;}
+.wci>div{position:absolute;inset:0;}
+
+/* ★ FIX: .wci .im のwidth:70%をwidth:100%に修正（画像が半分しか表示されていた） */
+.wci .im{
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+    transition: transform .8s var(--ease-out);
+}
+.wc:hover .im{transform:scale(1.055);}
+.wc.ban .wci::before{padding-top:52%;}
+.wc.dtp .wci{    
+  box-shadow: 0 2px 24px rgba(28, 28, 26, .09), 0 1px 5px rgba(28, 28, 26, .06);
+    height: 400px;}
+.wci-info{padding:.9rem 0 0;}
+.wct{font-family:var(--serif-jp);font-size:.8rem;font-weight:400;letter-spacing:.06em;color:var(--ink);margin-bottom:.22rem;}
+.wcs{font-family:var(--sans);font-size:.52rem;font-weight:300;letter-spacing:.12em;color:var(--ink-4);text-transform:uppercase;}
+
+/* browser chrome for web */
+.bwr{background:#bdbdbd;padding:.55rem .55rem 0;position:relative; height: 250px;}
+.bdots{display:flex;gap:.25rem;margin-bottom:.35rem;}
+.bdots span{width:5px;height:5px;border-radius:50%;background:rgba(245,243,238,.14);}
+.bwin{position:relative;overflow:hidden;}
+.bwin::before{content:'';display:block;padding-top:62%;}
+.bwin .im{position:absolute;inset:0;width:100%;height:100%;}
+
+/* illust hover */
+.ilov{position:absolute;inset:0;z-index:2;background:linear-gradient(to top,rgba(28,28,26,.3) 0%,transparent 50%);opacity:0;transition:opacity .5s var(--ease);pointer-events:none;}
+.wc:hover .ilov{opacity:1;}
+
+/* ABOUT */
+#about{padding:12vh 5vw;background:var(--bg-2);}
+.abl{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6vw;align-items:start;}
+.alead{font-family:var(--serif-jp);font-size:clamp(1.15rem,2.1vw,1.65rem);font-weight:400;line-height:2;letter-spacing:.08em;color:var(--ink);margin-bottom:2.2rem;}
+.abody{font-size:.8rem;font-weight:300;line-height:2.2;letter-spacing:.04em;color:var(--ink-2);margin-bottom:1.3rem;}
+.aprt{aspect-ratio:3/4;overflow:hidden;position:relative;}
+.aprt .pim{width:100%;height:100%;transition:transform .8s var(--ease-out);}
+.aprt:hover .pim{transform:scale(1.03);}
+.acap{margin-top:.8rem;font-family:var(--sans);font-size:.5rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-4);}
+.slbl{font-family:var(--sans);font-size:.5rem;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-4);margin-bottom:1.3rem;padding-bottom:.65rem;border-bottom:1px solid var(--line);}
+.skr{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--line);}
+.skr:last-child{border-bottom:none;}
+.skn{font-size:.76rem;font-weight:300;letter-spacing:.04em;color:var(--ink-2);}
+.skt{width:68px;height:1px;background:var(--line2);position:relative;}
+.skf{position:absolute;left:0;top:0;height:100%;background:var(--ink-2);width:0;transition:width 1.6s var(--ease-out);}
+.sec-sk{margin-bottom:2.8rem;}
+.tls{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.tl{font-size:.75rem;font-weight:300;letter-spacing:.04em;color:var(--ink-2);padding:.52rem 0;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:.45rem;}
+.tl::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--ink-4);flex-shrink:0;}
+
+/* CONTACT */
+#contact{padding:14vh 5vw 10vh;background:var(--bg-dark);position:relative;overflow:hidden;}
+.cgh{position:absolute;bottom:-8vh;right:-3vw;font-family:var(--serif-en);font-size:18vw;font-weight:300;font-style:italic;color:rgba(245,243,238,.022);line-height:1;pointer-events:none;user-select:none;}
+.cin{position:relative;z-index:1;max-width:720px;}
+.clead{font-family:var(--serif-jp);font-size:clamp(1.5rem,3.2vw,2.8rem);font-weight:400;line-height:1.75;letter-spacing:.08em;color:rgba(245,243,238,.65);margin-bottom:3.5rem;}
+.cmail{display:inline-flex;align-items:center;gap:1.2rem;font-family:var(--serif-en);font-size:clamp(.95rem,1.8vw,1.45rem);font-weight:300;font-style:italic;color:rgba(245,243,238,.5);text-decoration:none;cursor:none;position:relative;margin-bottom:4rem;}
+.cmail::after{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:1px;background:rgba(245,243,238,.18);transition:background .4s;}
+.cmail:hover::after{background:rgba(245,243,238,.45);}
+.cmail:hover{color:rgba(245,243,238,.72);}
+.clks{display:flex;gap:2.4rem;flex-wrap:wrap;}
+.clk{font-family:var(--sans);font-size:.56rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,238,.22);text-decoration:none;cursor:none;transition:color .3s;position:relative;}
+.clk::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:rgba(245,243,238,.28);transition:width .35s var(--ease);}
+.clk:hover{color:rgba(245,243,238,.48);}
+.clk:hover::after{width:100%;}
+
+/* FOOTER */
+footer{padding:2.5rem 5vw;background:var(--bg-dark2);display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(245,243,238,.05);}
+.flog{font-family:var(--serif-jp);font-size:.7rem;font-weight:400;letter-spacing:.3em;color:rgba(245,243,238,.2);}
+.fcpy{
+    font-family: var(--sans);
+    font-size: .8em;
+    font-weight: 300;
+    letter-spacing: .1em;
+    color: rgb(247 237 212 / 60%);
+    margin: 0 auto;}
+
+/* =========================================
+   MODAL — ★ 全面修正
+   ========================================= */
+.mbk{position:fixed;inset:0;background:rgba(28,28,26,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:1000;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s;cursor:none;}
+.mbk.on{opacity:1;visibility:visible;}
+
+.mdl{
+  position:fixed;
+  top:50%; left:50%;
+  transform:translate(-50%,-48%) scale(.97);
+  width:88vw; max-width:960px;
+  max-height:90vh;
+  background:var(--bg);
+  z-index:1001;
+  overflow-y:auto;
+  opacity:0; visibility:hidden;
+  transition:transform .5s var(--ease-out),opacity .4s var(--ease),visibility .4s;
+}
+.mdl.on{transform:translate(-50%,-50%) scale(1);opacity:1;visibility:visible;}
+
+.mclose{
+  position:absolute; top:1.3rem; right:1.3rem;
+  width:34px; height:34px;
+  background:none; border:1px solid var(--line2);
+  cursor:none; display:flex; align-items:center; justify-content:center;
+  font-family:var(--sans); font-size:.6rem; font-weight:300;
+  color:var(--ink-2); transition:background .25s; z-index:10;
+}
+.mclose:hover{background:var(--bg-2);}
+
+/* ★ FIX: グリッドレイアウトを安定化 */
+.mgrid{
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    min-height: 700px;
+    padding: 10px;
+}
+
+/* ★ FIX: モーダル画像エリア — position:relativeを確実に設定、heightを固定 */
+.mimg{
+  position:relative;
+  overflow:hidden;
+
+
+}
+
+/* ★ FIX: openM()でinnerHTMLに挿入される div に適用するスタイル */
+.mimg .mimg-fill {
+  position:absolute;
+  inset:0;
+  background-size:contain;
+  background-position:center;
+  height: 100%;
+}
+
+.mbody{padding:2.8rem 2.4rem; overflow-y:auto;}
+.mcat{font-family:var(--sans);font-size:.5rem;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.9rem;}
+.mtitle{font-family:var(--serif-jp);font-size:1.3rem;font-weight:400;letter-spacing:.06em;line-height:1.65;color:var(--ink);margin-bottom:1.3rem;}
+
+
+/* モーダルタイトルリンク */
+.mtitle a{
+  color:inherit;
+  text-decoration:none;
+  position:relative;
+  transition:color .3s;
+}
+.mtitle a::after{
+  content:'';
+  position:absolute;
+  bottom:-2px; left:0;
+  width:100%; height:1px;
+  background:var(--ink-2);
+  transform-origin:right;
+  transition:transform .4s var(--ease);
+}
+.mtitle a:hover{color:var(--ink-2);}
+.mtitle a:hover::after{transform:scaleX(0);transform-origin:left;}
+/* ID/Pass表示 */
+.midpass{
+  font-family:var(--sans);
+  font-size:.72rem;
+  font-weight:300;
+  letter-spacing:.08em;
+  color:var(--ink-3);
+  background:var(--bg-2);
+  border:1px solid var(--line2);
+  padding:.55rem .85rem;
+  margin-bottom:1.4rem;
+  display:inline-block;
+  line-height:1.9;
+}
+.midpass strong{
+  font-weight:400;
+  color:var(--ink-2);
+  font-family:monospace;
+  letter-spacing:.05em;
+}
+
+
+.mdesc{font-size:.78rem;font-weight:300;line-height:2.1;letter-spacing:.04em;color:var(--ink-2);margin-bottom:1.6rem;}
+.mmeta{display:flex;flex-direction:column;gap:.55rem;}
+.mrow{display:flex;gap:1rem;font-size:.74rem;}
+.mlbl{width:52px;flex-shrink:0;font-family:var(--sans);font-size:.48rem;font-weight:300;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);padding-top:.1rem;}
+.mval{color:var(--ink-2);font-weight:300;}
+
+/* SCROLL REVEAL */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out);}
+.rv.in{opacity:1;transform:none;}
+.rv.d1{transition-delay:.1s;}
+.rv.d2{transition-delay:.22s;}
+.rv.d3{transition-delay:.34s;}
+
+/* =========================================
+   PLACEHOLDER BG CLASSES
+   各カテゴリで視覚的に異なる色調
+   ========================================= */
+/* DTP — 温かいグレージュ、紙の質感 */
+.pd-m{
+  background: url(https://t-yoshiyoshi.github.io/portfolio/img/robo04.png) no-repeat center;
+  background-size: cover;}
+.pd-1{background:url(https://t-yoshiyoshi.github.io/portfolio/2023_netuden.jpg
+) center/cover no-repeat; background-color:#C8C4BC;}
+.pd-2{background: url(https://t-yoshiyoshi.github.io/portfolio/img/news_02.png) no-repeat center;}
+.pd-3{background: url(https://t-yoshiyoshi.github.io/portfolio/img/news_03.png) no-repeat center;}
+
+/* Banner — ダーク・コントラスト強め */
+.pb-m{background: url(https://t-yoshiyoshi.github.io/portfolio/img/konton_war_top_02.png) center / cover no-repeat; background-size: cover;}
+.pb-1{background: url(https://t-yoshiyoshi.github.io/portfolio/img/konton_gorin_top_02.jpg) center / cover no-repeat; background-size: cover;}
+.pb-2{background: url(https://t-yoshiyoshi.github.io/portfolio/img/superpower_of_chaos_top.jpg) center / cover no-repeat; background-size: cover;}
+.pb-3{background: url(https://t-yoshiyoshi.github.io/portfolio/img/yontaku_AI.jpg) center / cover no-repeat; background-size: cover;}
+.pb-4{background: url(https://t-yoshiyoshi.github.io/portfolio/img/Premier_league07-1.jpg) center / cover no-repeat; background-size: cover;}
+
+/* Web — クリーン・ライト */
+.pw-m{    
+  background: url(https://t-yoshiyoshi.github.io/portfolio/img/yon-taku.png) no-repeat center;
+    background-size: cover;}
+.pw-1{background:linear-gradient(180deg,#1C1C1A 0%,#282825 100%);}
+.pw-2{background:linear-gradient(180deg,#E0EAE8 0%,#C0D4D0 100%);}
+.pw-3{background:linear-gradient(180deg,#F4EEE8 0%,#E0D4C8 100%);}
+
+/* Illustration — ディープ・アトモスフェリック */
+.pi-m{
+  background: url(https://t-yoshiyoshi.github.io/portfolio/img/ouka.png) center / cover no-repeat;
+  background-size: cover;}
+.pi-1{        
+  background: url(https://t-yoshiyoshi.github.io/portfolio/img/funai.png) no-repeat center;
+  background-size: cover;}
+.pi-2{  background: url(https://t-yoshiyoshi.github.io/portfolio/img/gada_04_08.jpg) no-repeat center;
+  background-size: cover;}
+.pi-3{background: url(https://t-yoshiyoshi.github.io/portfolio/img/20250107_news03.jpg) no-repeat center;
+  background-size: cover;}
+
+/* DTP用ペーパーライン */
+.pp::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 29px,rgba(28,28,26,.032) 30px);pointer-events:none;}
+
+/* RESPONSIVE */
+@media(max-width:1080px){
+  .feat{grid-template-columns:1fr;gap:2.5rem;}
+  .feat.flip .fi{order:0;}.feat.flip .finfo{order:0;}
+  .abl{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+  nav{padding:1.4rem 5vw;}
+  .nav-ul{gap:1.8rem;}
+  .wg{grid-template-columns:1fr 1fr;}
+  .wg.c4{grid-template-columns:1fr;}
+  .abl{grid-template-columns:1fr;}
+  .fi{
+      min-height: 300px;
+
+  }
+  .fi-in {
+    position: absolute;
+    inset: 0;
+    width: 460px;
+    height: 320px;
+    overflow: hidden;
+}
+  .mgrid{
+        grid-template-columns: 1fr;
+        min-height: 1050px;}
+.wci {
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-2);
+    height: 65%;
+}
+  .wci .im {
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+    transition: transform .8s var(--ease-out);
+}
+  .mimg{min-height:0;}
+  .clks{gap:1.5rem;}
+  footer{flex-direction:column;gap:.7rem;text-align:center;}
+  body{cursor:auto;}
+  .cur,.crg{display:none;}
+}
+@media(max-width:500px){
+  .nav-ul{display:none;}
+  .h-ttl {
+    font-size: 2.5em;
+}
+  .h-eye{
+  font-family: var(--sans);
+    font-size: 0.8em;
+    font-weight: 300;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: rgb(112 105 97);
+    margin-top: 2em;
+    margin-bottom: 8.6rem;
+    opacity: 0;
+    animation: hUp .8s var(--ease-out) 2.3s forwards;
+}
+  .tab{padding:.75rem 1rem;font-size:1em;}
+  .wg{grid-template-columns:1fr;}
+  .mimg .mimg-fill {
+  height: 100%;
+}
+.fdesc{
+  width: 100%;
+}
+.mdl{
+  position: fixed;
+  transform: translate(-50%, -48%) scale(.97);
+  width: 95vw;
+  max-width: 960px;
+  max-height: 90vh;
+  background: var(--bg);
+  z-index: 1001;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: transform .5s var(--ease-out), opacity .4s var(--ease), visibility .4s;
+}
+.aprt {
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
+}
+.feat.flip {
+    grid-template-columns: 1fr;
+}
+.wci .im {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    transition: transform .8s var(--ease-out);
+}
+.im pw-1{
+  position:absolute;inset:0;display:flex;align-items:center;padding:.9rem;background: url(https://t-yoshiyoshi.github.io/portfolio/img/anim_bousai.png) no-repeat center;
+      background-size: unset;
+  
+}
+}
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="crg" id="crg"></div>
+
+<!-- Loader -->
+<div class="loader" id="loader">
+  <div style="text-align:center;">
+    <div class="ldr-en">portfolio</div>
+    <div class="ldr-jp">web designer</div>
+    <div class="ldr-bar"></div>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav id="nav">
+  <!--<a href="#" class="nav-logo">田中 悠希</a>-->
+  <ul class="nav-ul">
+    <li><a href="#works">Works</a></li>
+    <li><a href="#about">About</a></li>
+    <!--<li><a href="#contact">Contact</a></li>-->
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="top">
+  <div class="h-bg" id="hbg"></div>
+  <div class="h-ov"></div>
+  <div class="h-copy">
+    <h1 class="h-ttl">
+      <span class="w">Yoshie Taniguchi</span>&nbsp;
+      <span class="w"></span>&nbsp;
+      <span class="w">portfolio</span>
+    </h1>
+    <p class="h-eye">web Designer — Tokyo, Japan</p>
+  </div>
+  <div class="h-scrl">
+    <div class="stk"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- Works -->
+<section id="works" class="sec">
+  <div class="shd rv">
+    <span class="snum">01</span>
+    <h2 class="stitle"><span class="stitle-en">Works</span></h2>
+    <div class="srule"></div>
+  </div>
+  <div class="tabs">
+    <button class="tab on" data-tab="dtp">DTP</button>
+    <button class="tab" data-tab="banner">バナー</button>
+    <button class="tab" data-tab="web">Web</button>
+    <button class="tab" data-tab="illust">イラスト</button>
+  </div>
+
+  <!-- ===== DTP ===== -->
+  <div class="panel on" id="p-dtp">
+    <p class="plbl rv">DTP &nbsp;—&nbsp; Print &amp; Editorial Design</p>
+    <div class="feat rv" onclick="openM('dtp-m')">
+      <div class="fi">
+        <div class="fi-in">
+          <!-- ★ DTP専用背景: グレージュ×ペーパーライン -->
+          <div class="pd-m pp" style="position:relative;    background: url(https://t-yoshiyoshi.github.io/portfolio/img/news_01.png) center / cover no-repeat;
+    transition: transform 1s var(--ease-out);
+    background-size: cover;">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;padding:9%;">
+              <div>
+                <div style="font-family:'EB Garamond',serif;font-size:clamp(1.4rem,3.5vw,3.5rem);color:rgba(245,243,238,.62);font-weight:300;line-height:1;letter-spacing:.06em;"></div>
+                <div style="font-family:'Jost',sans-serif;font-size:.65rem;color:rgba(245,243,238,.28);letter-spacing:.2em;margin-top:.7rem;">2024</div>
+                <div style="width:36px;height:1px;background:rgba(245,243,238,.22);margin-top:1.1rem;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fbadge">Selected Work</div>
+      </div>
+      <div class="finfo">
+        <p class="fcat">DTP / Editorial Design</p>
+        <h3 class="ftitle">国士舘大学 大学新聞広告<br>2021</h3>
+        <p class="fdesc">国士舘大学で発行される大学新聞内の学生向けの広告。コロナ禍で学生の不安や生活の注意喚起や支援の情報を掲載。注意喚起は赤、支援関係の情報は緑で示しました。<br>ツール：Illustrator</p>
+        <div class="ftags"><span class="tag">Editorial</span><span class="tag">Typography</span><span class="tag">Illustrator</span></div>
+        <a class="bmore" href="javascript:void(0)" onclick="openM('dtp-m')">View Project <span class="barr">→</span></a>
+      </div>
+    </div>
+    <div class="dvd"></div>
+    <div class="wg rv">
+      <div class="wc dtp" onclick="openM('dtp-1')">
+        <div class="wci"><div><div class="im pd-1" style="background-color:#C8C4BC;"></div></div></div>
+        <div class="wci-info"><p class="wct">ポスター制作</p><p class="wcs">48p / A1 Full Color</p></div>
+      </div>
+      <div class="wc dtp" onclick="openM('dtp-2')">
+        <div class="wci"><div><div class="im pd-2 pp" style="display:flex;align-items:center;justify-content:center;background: url(https://t-yoshiyoshi.github.io/portfolio/img/news_02.png) no-repeat center;
+    background-size: cover;"><span style="font-family:'EB Garamond',serif;font-size:1.55rem;color:rgba(245,243,238,.44);font-weight:300;letter-spacing:.18em;"></span></div></div></div>
+        <div class="wci-info"><p class="wct">大学新聞広告</p><p class="wcs">H545mm × W812mm Design</p></div>
+      </div>
+      <div class="wc dtp" onclick="openM('dtp-3')">
+        <div class="wci"><div><div class="im pd-3 pp" style="display:flex;align-items:center;justify-content:center;    background-size: cover;"><span style="font-family:'EB Garamond',serif;font-size:1.55rem;color:rgba(28,28,26,.28);font-weight:300;letter-spacing:.18em;"></span></div></div></div>
+        <div class="wci-info"><p class="wct">大学新聞広告</p><p class="wcs">H545mm × W812mm Design</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Banner ===== -->
+  <div class="panel" id="p-banner">
+    <p class="plbl rv">バナー &nbsp;—&nbsp; Web &amp; Digital Advertising</p>
+    <div class="feat rv" onclick="openM('bn-m')">
+      <div class="fi">
+        <div class="fi-in" style="padding-top: 5px;">
+          <!-- ★ Banner専用背景: ダーク×ゴールド -->
+          <div class="pb-m" style="display:flex;align-items:center;justify-content:center; background: url(https://t-yoshiyoshi.github.io/portfolio/img/konton_war_top_02.png) center / cover no-repeat; background-size: cover;
+    width: 84%;
+    height: 71%;">
+            <div style="text-align:center;padding:2rem;">
+              <div style="font-family:'Jost',sans-serif;font-size:.5rem;letter-spacing:.3em;color:rgba(200,169,110,.75);text-transform:uppercase;margin-bottom:.9rem;"></div>
+              <div style="font-family:'EB Garamond',serif;font-size:clamp(2rem,5vw,4.5rem);color:rgba(245,243,238,.8);font-weight:300;line-height:.94;letter-spacing:-.01em;"></em></div>
+              <div style="width:46px;height:1px;background:rgba(200,169,110,.35);margin:1.1rem auto;"></div>
+              <div style="font-family:'Jost',sans-serif;font-size:.5rem;letter-spacing:.22em;color:rgba(245,243,238,.3);text-transform:uppercase;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="fbadge">Selected Work</div>
+      </div>
+      <div class="finfo">
+        <p class="fcat">Web Banner / Digital Ad</p>
+        <h3 class="ftitle">共同通信社ニュースサイト<br>「戦争と表現」</h3>
+        <p class="fdesc">共同通信社ニュースサイトvisualNews「戦争と表現」バナー。作家のインタビューや紛争地の今をルポ。それぞれの背景を掛け合わせ、テーマの雰囲気に寄せました。</p>
+        <div class="ftags"><span class="tag">Web Banner</span><span class="tag">Photoshop</span><span class="tag"></span></div>
+        <a class="bmore" href="javascript:void(0)" onclick="openM('bn-m')">View Project <span class="barr">→</span></a>
+      </div>
+    </div>
+    <div class="dvd"></div>
+    <div class="wg c4 rv">
+      <div class="wc ban" onclick="openM('bn-1')">
+        <div class="wci"><div><div class="im pb-1" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.35rem;background: url(https://t-yoshiyoshi.github.io/portfolio/img/konton_gorin_top_02.jpg) center / cover no-repeat; background-size: cover;"><div style="font-family:'Jost',sans-serif;font-size:.42rem;letter-spacing:.25em;color:rgba(200,169,110,.55);text-transform:uppercase;">Luxury</div><div style="font-family:'EB Garamond',serif;font-size:1rem;color:rgba(245,243,238,.6);font-weight:300;"></div></div></div></div>
+        <div class="wci-info"><p class="wct">翻弄される五輪</p><p class="wcs"></p></div>
+      </div>
+
+      <div class="wc ban" onclick="openM('bn-2')">
+        <div class="wci"><div><div class="im pb-2" style="display:flex;align-items:center;justify-content:center; background: url(https://t-yoshiyoshi.github.io/portfolio/img/superpower_of_chaos_top.jpg) center / cover no-repeat; background-size: cover;"><div style="font-family:'EB Garamond',serif;font-size:1rem;color:rgba(245,243,238,.65);font-weight:300;letter-spacing:.12em;text-align:center;line-height:1.4;"></div></div></div></div>
+        <div class="wci-info"><p class="wct">トランプ2.0 混沌の超大国</p><p class="wcs"></p></div>
+      </div>
+      <div class="wc ban" onclick="openM('bn-3')">
+        <div class="wci"><div><div class="im pb-3" style="display:flex;align-items:center;justify-content:center; background: url(https://t-yoshiyoshi.github.io/portfolio/img/yontaku_AI.jpg) center / cover no-repeat; background-size: cover;"><div style="font-family:'EB Garamond',serif;font-size:1rem;color:rgba(245,243,238,.65);font-weight:300;letter-spacing:.1em;text-align:center;line-height:1.4;"></div></div></div></div>
+        <div class="wci-info"><p class="wct">YONTAKU AI</p><p class="wcs"></p></div>
+      </div>
+      <div class="wc ban" onclick="openM('bn-4')">
+        <div class="wci"><div><div class="im pb-4" style="display:flex;align-items:center;justify-content:center; background: url(https://t-yoshiyoshi.github.io/portfolio/img/Premier_league07-1.jpg) center / cover no-repeat; background-size: cover;"><div style="font-family:'EB Garamond',serif;font-size:1rem;color:rgba(28,28,26,.4);font-style:italic;letter-spacing:.1em;text-align:center;line-height:1.4;"></div></div></div></div>
+        <div class="wci-info"><p class="wct">PREMIR LWAGUE</p><p class="wcs"></p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Web ===== -->
+  <div class="panel" id="p-web">
+    <p class="plbl rv">Web &nbsp;—&nbsp; Website &amp; UI Design</p>
+    <div class="feat flip rv" onclick="openM('web-m')">
+      <div class="fi">
+        <div class="fi-in">
+          <!-- ★ Web専用: ブラウザモックアップ -->
+          <div style="    
+          background: url(https://t-yoshiyoshi.github.io/portfolio/img/anim_yontaku..png) no-repeat center;
+            background-size: cover;
+            height: 120%;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            padding: 1.1rem 1.1rem 0;">
+            <div style="display:flex;gap:.28rem;margin-bottom:.7rem;">
+              <span style="width:5px;height:5px;border-radius:50%;background:rgba(245,243,238,.12);"></span>
+              <span style="width:5px;height:5px;border-radius:50%;background:rgba(245,243,238,.12);"></span>
+              <span style="width:5px;height:5px;border-radius:50%;background:rgba(245,243,238,.12);"></span>
+            </div>
+            <div style="flex:1;overflow:hidden;padding:.9rem .75rem;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.9rem;padding-bottom:.5rem;border-bottom:1px solid rgba(28,28,26,.07);">
+                <span style="font-family:'EB Garamond',serif;font-size:.7rem;color:#1C1C1A;letter-spacing:.18em;"></span>
+                <div style="display:flex;flex-direction:column;gap:.16rem;align-items:flex-end;">
+                  <span style="display:block;width:13px;height:1px;background:#1C1C1A;"></span>
+                  <span style="display:block;width:9px;height:1px;background:#1C1C1A;"></span>
+                </div>
+              </div>
+              
+
+            </div>
+          </div>
+        </div>
+        <div class="fbadge">Selected Work</div>
+      </div>
+      <div class="finfo">
+        <p class="fcat">Web Design / UI</p>
+        <a href="https://sandbox.kyodo.media/ssl/demo/pc.html?sjkd_page=cont_KA68ccd737c2c52_KA695dfecec1928" style="text-decoration: none;"><h3 class="ftitle_02">共同通信社<br>クイズサイト</h3></a>
+        <p class="id-pass">ID:shiodome <br>pass:yurikamome</p>
+        <p class="fdesc">AIが出題するクイズを解くエンタメサイト。スクロール連動で街のイラストが重なりタイトルが表示、UI/UXを意識し回答すると、正誤が判定され、解説と次の問題が自動スクロールされる仕組みを提案。10問解くとスコアが表示される。デザイン、コーディング、キャラクターデザインを担当</p>
+        <div class="ftags"><span class="tag">Web Design</span><span class="tag">UI/UX</span><span class="tag">Figma</span></div>
+        <a class="bmore" href="javascript:void(0)" onclick="openM('web-m')">View Project <span class="barr">→</span></a>
+      </div>
+    </div>
+    <div class="dvd"></div>
+    <div class="wg rv">
+      <div class="wc" onclick="openM('web-1')">
+        <div class="wci" style="overflow:visible;"><div class="bwr"><div class="bdots"><span></span><span></span><span></span></div><div class="bwin"><div class="im pw-1" style="position:absolute;inset:0;display:flex;align-items:center;padding:.9rem;background: url(https://t-yoshiyoshi.github.io/portfolio/img/anim_bousai.png) no-repeat center;
+            background-size: cover;"><div style="font-family:'EB Garamond',serif;font-size:.85rem;color:rgba(245,243,238,.45);font-weight:300;letter-spacing:.1em;line-height:1.55;font-style:italic;">Restaurant<br>NOMA</div></div></div></div></div>
+        <div class="wci-info" style="padding: 3rem 0 0;"><p class="wct">子ども向け工作サイト 防災編</p><p class="wcs">education / html / css / Javascript / Illustrator / Photoshop</p></div>
+      </div>
+      <div class="wc" onclick="openM('web-2')">
+        <div class="wci" style="overflow:visible;"><div class="bwr"><div class="bdots"><span></span><span></span><span></span></div><div class="bwin"><div class="im pw-2" style="position:absolute;inset:0;display:flex;align-items:center;padding:.9rem;background: url(https://t-yoshiyoshi.github.io/portfolio/img/anim_milano.png) no-repeat center;
+            background-size: cover;"><div style="font-family:'EB Garamond',serif;font-size:.85rem;color:rgba(28,28,26,.4);font-weight:300;letter-spacing:.1em;line-height:1.55;font-style:italic;"></div></div></div></div></div>
+        <div class="wci-info" style="padding: 3rem 0 0;"><p class="wct">ミラノコルティナパラリンピック 特設サイト</p><p class="wcs">Olympic special site</p></div>
+      </div>
+      <div class="wc" onclick="openM('web-3')">
+        <div class="wci" style="overflow:visible;"><div class="bwr"><div class="bdots"><span></span><span></span><span></span></div><div class="bwin"><div class="im pw-3" style="position:absolute;inset:0;display:flex;align-items:center;padding:.9rem;background: url(https://t-yoshiyoshi.github.io/portfolio/img/anim_mongol.png) no-repeat center;
+            background-size: cover;"><div style="font-family:'EB Garamond',serif;font-size:.85rem;color:rgba(28,28,26,.38);font-weight:300;letter-spacing:.1em;line-height:1.55;font-style:italic;"></div></div></div></div></div>
+        <div class="wci-info" style="padding: 3rem 0 0;"><p class="wct">ナーダムリポートサイト</p><p class="wcs">mongolia / news report</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Illust ===== -->
+  <div class="panel" id="p-illust">
+    <p class="plbl rv">イラスト &nbsp;—&nbsp; Illustration &amp; Artwork</p>
+    <div class="feat rv" onclick="openM('il-m')">
+      <div class="fi">
+        <div class="fi-in">
+          <!-- ★ Illust専用: ディープパープル×パーティクル -->
+          <div class="pi-m" style="position:relative; width: 80%;">
+
+            <div style="position:absolute;inset:0;display:flex;align-items:center;">
+              <span style="font-family:'EB Garamond',serif;font-style:italic;font-size:clamp(2rem,5vw,4.5rem);color:rgba(245,243,238,.09);font-weight:300;letter-spacing:.3em;"></span>
+            </div>
+          </div>
+        </div>
+        <div class="fbadge">Selected Work</div>
+      </div>
+      <div class="finfo">
+        <p class="fcat">Illustration / Digital Art</p>
+        <h3 class="ftitle">桜花（海軍）</h3>
+        <p class="fdesc">共同通信社ニュースサイト 戦争の実相「特攻と学徒兵」内に使用されたイラスト。細かい色味や曲線も表現しました。<br>使用ツール：Illustrator</p>
+        <div class="ftags"><span class="tag">Illustrator</span><span class="tag">Procreate</span><span class="tag">Series</span></div>
+        <a class="bmore" href="javascript:void(0)" onclick="openM('il-m')">View Project <span class="barr">→</span></a>
+      </div>
+    </div>
+    <div class="dvd"></div>
+    <div class="wg rv">
+      <div class="wc" onclick="openM('il-1')">
+        <div class="wci"><div><div class="im pi-1" style="position:relative;
+        "><div class="ilov"></div></div></div></div>
+        <div class="wci-info"><p class="wct">船井電機創業者 船井哲良</p><p class="wcs">Digital / Procreate</p></div>
+      </div>
+      <div class="wc" onclick="openM('il-2')">
+        <div class="wci"><div><div class="im pi-2" style="position:relative;"><div class="ilov"></div><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;"></div></div></div></div>
+        <div class="wci-info"><p class="wct">ガダルカナル島の戦い</p><p class="wcs">Digital / Illustrator</p></div>
+      </div>
+      <div class="wc" onclick="openM('il-3')">
+        <div class="wci"><div><div class="im pi-3" style="position:relative;"><div class="ilov"></div></div></div></div>
+        <div class="wci-info"><p class="wct">ニュースがわかるキーワード</p><p class="wcs">Digital / Illustrator</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="shd rv" style="padding:12vh 5vw 0;">
+    <span class="snum">02</span>
+    <h2 class="stitle"><span class="stitle-en">About</span></h2>
+    <div class="srule"></div>
+  </div>
+  <div class="abl" style="padding:0 5vw 12vh;">
+    <div class="rv">
+      <p class="alead">「伝わるデザイン」を<br>追い求めています。</p>
+      <p class="abody">幼少期から絵を描いたり何かを作る事が大好きでした。専業主婦を経て、大学職員に就きましたが自分のスキルのなさに危機を感じ、40代でデジタルハリウッドでwebデザインを学びました。現在は通信社にてニュースサイトの制作を担当。デザイン、コーディング、動画編集、イラスト、バナー、アニメーション等幅広く行っています。</p>
+      <p class="abody">常に新しい事に挑戦する姿勢と、多角的な視点とUI/UXを意識し、クライアント様に喜んでいただけるような作品を作りたいと考えております。読書、映画鑑賞、ものづくり、料理やお菓子作りが趣味です。新しい物やアイデアを生み出す事が得意です。</p>
+    </div>
+    <div class="rv d1">
+      <div class="aprt">
+        <div class="pim pd-m" style="width:100%;height:100%;"></div>
+      </div>
+      <p class="acap">Tokyo, Japan</p>
+    </div>
+    <div class="rv d2">
+      <div class="sec-sk">
+        <p class="slbl">Design Skills</p>
+        <div class="skr"><span class="skn">DTP Design</span><div class="skt"><div class="skf" data-w="95"></div></div></div>
+        <div class="skr"><span class="skn">Web Design</span><div class="skt"><div class="skf" data-w="88"></div></div></div>
+        <div class="skr"><span class="skn">UI/UX Design</span><div class="skt"><div class="skf" data-w="80"></div></div></div>
+        <div class="skr"><span class="skn">Illustration</span><div class="skt"><div class="skf" data-w="75"></div></div></div>
+        <div class="skr"><span class="skn">Typography</span><div class="skt"><div class="skf" data-w="92"></div></div></div>
+      </div>
+      <div class="sec-sk">
+        <p class="slbl">Tools</p>
+        <div class="tls">
+          <div class="tl">Adobe premiere</div><div class="tl">Photoshop</div>
+          <div class="tl">Illustrator</div><div class="tl">Figma</div>
+          <div class="tl">Adobe Animate</div><div class="tl">After Effects</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact 
+<section id="contact">
+  <div class="cgh">contact</div>
+  <div class="cin">
+    <div class="shd rv" style="padding:14vh 5vw 0;">
+      <span class="snum" style="color:rgba(245,243,238,.18);">03</span>
+      <h2 class="stitle" style="color:rgba(245,243,238,.65);">お問い合わせ<span class="stitle-en" style="color:rgba(245,243,238,.18);">Contact</span></h2>
+      <div class="srule" style="background:rgba(245,243,238,.07);"></div>
+    </div>
+    <div style="padding:0 5vw 10vh;">
+      <p class="clead rv">新しい仕事の<br>ご依頼、<br>お待ちしています。</p>
+      <a class="cmail rv" href="mailto:yuki@example.com">yuki@example.com &nbsp;→</a>
+      <div class="clks rv">
+        <a class="clk" href="#">Instagram</a>
+        <a class="clk" href="#">Behance</a>
+        <a class="clk" href="#">Twitter / X</a>
+        <a class="clk" href="#">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>-->
+
+<footer>
+  <span class="flog"></span>
+  <span class="fcpy">© 2025 Taniguchi Yoshie. All rights reserved.</span>
+</footer>
+
+<!-- Modal -->
+<div class="mbk" id="mbk" onclick="closeM()"></div>
+<div class="mdl" id="mdl">
+  <button class="mclose" onclick="closeM()">✕</button>
+  <div class="mgrid">
+    <div class="mimg" id="mimg"></div>
+    <div class="mbody">
+      <p class="mcat"   id="mcat"></p>
+      <h3 class="mtitle" id="mtitle"></h3>
+      <div class="midpass" id="midpass" style="display:none;"></div>
+      <p class="mdesc"  id="mdesc"></p>
+      <div class="mmeta" id="mmeta"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── Cursor ── */
+const cur=document.getElementById('cur'),crg=document.getElementById('crg');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function t(){
+  cur.style.left=mx+'px'; cur.style.top=my+'px';
+  rx+=(mx-rx)*.1; ry+=(my-ry)*.1;
+  crg.style.left=rx+'px'; crg.style.top=ry+'px';
+  requestAnimationFrame(t);
+})();
+document.querySelectorAll('a,button,.wc,.feat,.tab').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.classList.add('ex');crg.classList.add('ex');});
+  el.addEventListener('mouseleave',()=>{cur.classList.remove('ex');crg.classList.remove('ex');});
+});
+ 
+/* ── Loader ── */
+window.addEventListener('load',()=>{
+  setTimeout(()=>document.getElementById('loader').classList.add('out'),2000);
+  setTimeout(()=>document.getElementById('hbg').classList.add('ld'),2200);
+});
+ 
+/* ── Nav ── */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('st',scrollY>60));
+ 
+/* ── Tabs ── */
+document.querySelectorAll('.tab').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
+    btn.classList.add('on');
+    const p=document.getElementById('p-'+btn.dataset.tab);
+    p.classList.add('on');
+    p.querySelectorAll('.rv').forEach(el=>{
+      el.classList.remove('in');
+      setTimeout(()=>el.classList.add('in'),60);
+    });
+  });
+});
+ 
+/* ── Scroll Reveal ── */
+const ro=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in');});
+},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+ 
+/* ── Skill bars ── */
+const so=new IntersectionObserver(e=>{
+  e.forEach(x=>{
+    if(x.isIntersecting)
+      x.target.querySelectorAll('.skf').forEach(b=>b.style.width=b.dataset.w+'%');
+  });
+},{threshold:.3});
+document.querySelectorAll('.sec-sk').forEach(el=>so.observe(el));
+ 
+/* ── Parallax ── */
+window.addEventListener('scroll',()=>{
+  const b=document.querySelector('.h-bg');
+  if(b) b.style.transform=`translateY(${scrollY*.2}px) scale(1.04)`;
+});
+ 
+/* ── Modal data ── */
+/*
+  bg: CSSクラス名のみ（プレースホルダー）
+  または imgUrl: 実画像URL を指定することで実写真に切り替え可能
+  例) imgUrl:'https://example.com/photo.jpg'
+*/
+const md={
+  'dtp-m':{
+    cat:'DTP / Editorial',
+    title:'大学新聞広告 2021',
+    desc:'国士舘大学で発行される大学新聞内の学生向けの広告。コロナ禍で学生の不安や生活の注意喚起や支援の情報を掲載。注意喚起は赤、支援関係の情報は緑で示しました。',
+    bg:'pd-m',
+    imgUrl:'https://t-yoshiyoshi.github.io/portfolio/img/news_01.png',
+    meta:[['Year','2021'],['Size','H545mm × W812mm'],['Client','国士舘大学 広報課'],['Tools','Illustrator']]
+  },
+  'dtp-1':{
+    cat:'DTP',
+    title:'東京都立科学技術高等学校　イベントポスター',
+    desc:'同校の文化祭で行われたイベントポスター。科学技術高校での電気を発生させ、対戦でどちらが早く発生させるかを競わせる実験なので、スピード感と電気を表現した画像を配置させました。',
+    bg:'pd-1',
+    imgUrl:'https://t-yoshiyoshi.github.io/portfolio/2023_netuden.jpg',
+    meta:[['Year','2023'],['Size','A1'],['Client','科学技術高等学校'],['Tools','photoshop / Illustrator']]
+  },
+  'dtp-2':{cat:'DTP',title:'大学新聞広告2021',desc:'国士舘大学で発行されている大学新聞内の一面広告。在学生、卒業生達がオリンピック、パラリンピックに出場するため制作されました。国士舘カラーの国士舘ブルーをメインに、サブカラーの国士舘レッドを使用して動きのある表現にしました。',bg:'pd-2',meta:[['Year','2021'],['Size','H545mm × W812mm'],['Client','国士舘大学'],['Tools','photoshop / Illustrator']]},
+
+
+  'dtp-3':{cat:'DTP / Poster',title:'大学新聞広告2021',desc:'国士舘大学で発行されている大学新聞内の一面広告。在学生を紹介するInstagramの告知広告。ペルソナは新入生。学生獲得のために学生のリアルを発信している。10代に刺さるよう柔らかい色味を沢山使用し、国士舘の硬いイメージを払拭する狙いで作成しました。',bg:'pd-3',meta:[['Year','2021'],['Size','H545mm × W812mm'],['Client','国士舘大学'],['Tools','Iphotoshop / Illustrator']]},
+
+  'bn-m':{cat:'Web Banner',title:'「戦争と表現」',desc:'共同通信社ニュースサイトvisualNews「戦争と表現」バナー。作家のインタビューや紛争地の今をルポ。それぞれの背景を掛け合わせ、テーマの雰囲気に寄せました。',bg:'pb-m',meta:[['Year','2025'],['Sizes','1280px-730px'],['Client','共同通信社'],['Tools','Photoshop']]},
+
+  'bn-1':{cat:'Web Banner',title:'「翻弄される五輪」',desc:'共同通信社ニュースサイトvisualNews「翻弄される五輪」バナー',bg:'pb-1',
+  imgUrl:'https://t-yoshiyoshi.github.io/portfolio/img/konton_gorin_top.jpg',
+  meta:[['Year','2025'],['Sizes','1280px-730px'],['Client','共同通信社'],['Tools','Photoshop']]},
+
+  'bn-2':{cat:'web Banner',title:'「トランプ2.0 混沌の超大国」',desc:'共同通信社ニュースサイトvisualNews「トランプ2.0 混沌の超大国」バナー',bg:'pb-2',meta:[['Year','2025'],['Format','1280px-730px'],['Client','共同通信社'],['Tools','photoshop']]},
+
+  'bn-3':{cat:'web Banner',title:'「YONTAKU AI」',desc:'共同通信社ニュースサイトvisualNews「YONTAKU AI」バナー',bg:'pb-3',meta:[['Year','2024'],['Format','1100px-360px'],['Client','共同通信社'],['Tools','Illustrator']]},
+
+  'bn-4':{cat:'web Banner',title:'「PREMIR LWAGUE 巨大ビジネスの誕生」',desc:'共同通信社ニュースサイトvisualNews「PREMIR LWAGUE 巨大ビジネスの誕生」バナー',bg:'pb-4',meta:[['Year','2024'],['Format','I1280px-730px'],['Client','共同通信社'],['Tools','Illustrator']]},
+  'web-m':{
+    cat:'Web Design / UI',
+    title:'YONTAKU AI',
+    linkUrl:'https://sandbox.kyodo.media/ssl/demo/pc.html?sjkd_page=cont_KA68ccd737c2c52_KA695dfecec1928',
+    idpass:{id:'shiodome', pass:'yurikamome'},
+    desc:'AIが出題するクイズを解くエンタメサイト。スクロール連動で街のイラストが重なりタイトルが表示、UI/UXを意識し回答すると、正誤が判定され、解説と次の問題が自動スクロールされる仕組みを提案。10問解くとスコアが表示される。デザイン、コーディング、アニメーション、キャラクターデザインを担当。',
+    bg:'pw-m',
+    imgUrl:'https://t-yoshiyoshi.github.io/portfolio/img/anim_yontaku..png',
+    meta:[['Year','2025'],['Type','Entertainment Site'],['Client','共同通信社'],['Tools','Figma / Illustrator / HTML / CSS / JS / GSAP']]
+  },
+
+  'web-1':{cat:'Web Design',title:'りんぺい先生の作って遊んでサイエンス　防災編',
+    linkUrl:'https://sandbox.kyodo.media/ssl/demo/pc.html?sjkd_page=cont_KA65dd388d4bb8d_KA66e386a47fb4b',
+    idpass:{id:'shiodome', pass:'yurikamome'},desc:'子ども向け工作サイトのシリーズ。夏の特別編。防災＋キャンプの要素を含んだ内容で、楽しく防災に活かせる知識を学べるコンテンツになっています。デザイン、動画編集、コーディングまで全て担当。有事の際は子どもでも身を守る対策をユーザーにわかりやすく制作しました。',bg:'pw-1',imgUrl:'https://t-yoshiyoshi.github.io/portfolio/img/bousai_02.png',
+  meta:[['Year','2024'],['Type','Educational site'],['Client','共同通信社'],['Tools','Figma /HTML /css /Javascript /Illustrator /photoshop/premiere Pro']]},
+
+  'web-2':{cat:'Web Design',title:'ミラノコルティナパラリンピック 特設サイト',
+  linkUrl:'http://sandbox.kyodo.media/ssl/demo/pc.html?sjkd_page=cont_KA69a518db7812c_KA69a51fda70e81',
+    idpass:{id:'shiodome', pass:'yurikamome'},
+  desc:'ミラノコルティナで開催されたパラリンピックの特設サイト。現地での活躍を写真とともにリポート。サイトデザイン、イラストも一から作成しました。',bg:'pw-2',imgUrl:'https://t-yoshiyoshi.github.io/portfolio/img/mirano_02.jpg', meta:[['Year','2026'],['Type','sports site'],['Client','共同通信社'],['Tools','Figma /HTML /css /Javascript /Illustrator /photoshop']]},
+
+
+  'web-3':{cat:'Web Design',title:'モンゴル 夏の祭典、小学生疾走',
+    linkUrl:'https://sandbox.kyodo.media/ssl/demo/pc.html?sjkd_page=cont_KA6721a8dded758_KA6721a7dc2c77d',
+    idpass:{id:'shiodome', pass:'yurikamome'},
+  desc:'モンゴル最大のスポーツの祭典「ナーダム」で行われた伝統の馬レースのリポートサイト。写真と動画を沢山掲載するためパララックスを利用し、背景と前面に画像や動画を配置し、スクロールのみで全ての画像とテキストを見れるデザインにしました。',bg:'pw-3',
+  imgUrl:'https://t-yoshiyoshi.github.io/portfolio/img/mongorian.jpg',
+  meta:[['Year','2025'],['Type','Web Design'],['Client','共同通信社'],['Tools','Figma /HTML /css /Javascript /photoshop']]},
+  
+  'il-m':{cat:'Illustration',title:'桜花（海軍）',desc:'共同通信社ニュースサイト 戦争の実相「特攻と学徒兵」内に使用されたイラスト。細かい色味や曲線も表現しました。使用ツール：Illustrator',bg:'pi-m',meta:[['Year','2025'],['Medium','Digital'],['Use','website'],['Tools','Illustrator']]},
+
+
+  'il-1':{cat:'Illustration',title:'船井電機創業者 船井哲良',desc:'共同通信社のyoutube モヤモヤ経済学で使用されたイラスト。イラストレーターを使用し、なるべくリアルに仕上げました。',bg:'pi-1',meta:[['Year','2025'],['Medium','Digital'],['Use','youtube'],['Tools','Illustrator']]},
+
+  'il-2':{cat:'Illustration',title:'ガダルカナル島の戦い',desc:'共同通信社ニュースサイトの「戦争の実相」に使用したイラスト。ガダルカナル島はジャングルで日が当たらないため全体的に暗く作成しました。',bg:'pi-2',meta:[['Year','2025'],['Medium','Digital'],['Use','website'],['Tools','Illustrator']]},
+  'il-3':{cat:'Illustration',title:'ニュースがわかるキーワード',desc:'共同通信社の「ニュースがわかるキーワード」内で使用されたイラスト。政治献金、裏金がテーマのもの',bg:'pi-3',meta:[['Year','2024'],['Medium','Digital'],['Use','website'],['Tools','Illustrator']]},
+};
+ 
+/* ── openModal ──
+   linkUrl: タイトルにリンクを設定（任意）
+   idpass : {id, pass} でID/Passを表示（任意）
+   imgUrl : 実画像URL（任意。なければCSSグラデーション）
+   ── */
+function openM(id){
+  const d=md[id]; if(!d) return;
+ 
+  // カテゴリ
+  document.getElementById('mcat').textContent = d.cat;
+ 
+  // タイトル — linkUrlがあればリンク化、なければテキストのみ
+  const titleEl = document.getElementById('mtitle');
+  if(d.linkUrl){
+    titleEl.innerHTML =
+      `<a href="${d.linkUrl}" target="_blank" rel="noopener">${d.title} <span style="font-family:var(--sans);font-size:.55rem;font-weight:300;letter-spacing:.1em;vertical-align:middle;opacity:.6;">↗</span></a>`;
+  } else {
+    titleEl.textContent = d.title;
+  }
+ 
+  // ID / Pass（任意）
+  const idpassEl = document.getElementById('midpass');
+  if(d.idpass){
+    idpassEl.innerHTML =
+      `ID &nbsp;<strong>${d.idpass.id}</strong> &ensp;/&ensp; Pass &nbsp;<strong>${d.idpass.pass}</strong>`;
+    idpassEl.style.display = 'block';
+  } else {
+    idpassEl.style.display = 'none';
+  }
+ 
+  // 説明文
+  document.getElementById('mdesc').textContent = d.desc;
+ 
+  // 画像
+  const im = document.getElementById('mimg');
+  if(d.imgUrl){
+    im.innerHTML = `<div class="mimg-fill" style="background-image:url('${d.imgUrl}');background-repeat:no-repeat;"></div>`;
+  } else {
+    im.innerHTML = `<div class="mimg-fill ${d.bg}"></div>`;
+  }
+ 
+  // メタ情報
+  document.getElementById('mmeta').innerHTML =
+    d.meta.map(([l,v])=>`<div class="mrow"><span class="mlbl">${l}</span><span class="mval">${v}</span></div>`).join('');
+ 
+  document.getElementById('mbk').classList.add('on');
+  document.getElementById('mdl').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+ 
+function closeM(){
+  document.getElementById('mbk').classList.remove('on');
+  document.getElementById('mdl').classList.remove('on');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeM(); });
+ 
+/* ── Smooth scroll ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+</script>
+</body>
+</html>
