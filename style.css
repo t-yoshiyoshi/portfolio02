@@ -140,7 +140,7 @@ font-family: var(--serif-en);
 
 /* ★ FIX: .fi-in > div のハードコードbgを削除。各パネルのHTMLで個別に指定 */
 .fi-in > div {
-    width: 50%;
+    width: 60%;
     height: 100%;
     transition: transform 1s var(--ease-out);
 }
@@ -378,7 +378,7 @@ footer{padding:2.5rem 5vw;background:var(--bg-dark2);display:flex;justify-conten
 .pd-3{background: url(https://t-yoshiyoshi.github.io/portfolio/img/news_03.png) no-repeat center;}
 
 /* Banner — ダーク・コントラスト強め */
-.pb-m{background: url(https://t-yoshiyoshi.github.io/portfolio/img/konton_war_top_02.png) center / cover no-repeat; background-size: cover;}
+.pb-m{background: url(/img/04soccer_wtop-1.jpg) center / cover no-repeat; background-size: cover;}
 .pb-1{background: url(https://t-yoshiyoshi.github.io/portfolio/img/konton_gorin_top_02.jpg) center / cover no-repeat; background-size: cover;}
 .pb-2{background: url(https://t-yoshiyoshi.github.io/portfolio/img/superpower_of_chaos_top.jpg) center / cover no-repeat; background-size: cover;}
 .pb-3{background: url(https://t-yoshiyoshi.github.io/portfolio/img/yontaku_AI.jpg) center / cover no-repeat; background-size: cover;}
@@ -394,7 +394,7 @@ footer{padding:2.5rem 5vw;background:var(--bg-dark2);display:flex;justify-conten
 
 /* Illustration — ディープ・アトモスフェリック */
 .pi-m{
-  background: url(https://t-yoshiyoshi.github.io/portfolio/img/ouka.png) center / cover no-repeat;
+  background: url(/img/fifa_w800_600.jpg) center / cover no-repeat;
   background-size: cover;}
 .pi-1{        
   background: url(https://t-yoshiyoshi.github.io/portfolio/img/funai.png) no-repeat center;
@@ -426,7 +426,7 @@ footer{padding:2.5rem 5vw;background:var(--bg-dark2);display:flex;justify-conten
   .fi-in {
     position: absolute;
     inset: 0;
-    width: 460px;
+    width: 90%;
     height: 320px;
     overflow: hidden;
 }

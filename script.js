@@ -87,7 +87,7 @@ const md={
 
   'dtp-3':{cat:'DTP / Poster',title:'大学新聞広告2021',desc:'国士舘大学で発行されている大学新聞内の一面広告。在学生を紹介するInstagramの告知広告。ペルソナは新入生。学生獲得のために学生のリアルを発信している。10代に刺さるよう柔らかい色味を沢山使用し、国士舘の硬いイメージを払拭する狙いで作成しました。',bg:'pd-3',meta:[['Year','2021'],['Size','H545mm × W812mm'],['Client','国士舘大学'],['Tools','Iphotoshop / Illustrator']]},
 
-  'bn-m':{cat:'Web Banner',title:'「戦争と表現」',desc:'共同通信社ニュースサイトvisualNews「戦争と表現」バナー。作家のインタビューや紛争地の今をルポ。それぞれの背景を掛け合わせ、テーマの雰囲気に寄せました。',bg:'pb-m',meta:[['Year','2025'],['Sizes','1280px-730px'],['Client','共同通信社'],['Tools','Photoshop']]},
+  'bn-m':{cat:'Web Banner',title:'「WORLD CUP2026」',desc:'共共同通信社ニュースサイトのWORLD CUP速報と現地リポートのサイトのバナーです。使用できる素材が、選手の画像と、サッカーボールのみで作成を依頼されました。使える素材が少ないため、日本の国旗を使用することを避けるようにとのことでしたが、色味を他の要素と全体的に馴染ませるようにし背景デザインとしてそこに注目されないようにしました。躍動的な背景とともに選手の動きやカラー処理でまとまりのあるバナーに仕上げました。（製作期間2日）同通信社ニュースサイトvisualNews「戦争と表現」バナー。作家のインタビューや紛争地の今をルポ。それぞれの背景を掛け合わせ、テーマの雰囲気に寄せました。',bg:'pb-m',meta:[['Year','2026'],['Sizes','1280px-730px'],['Client','共同通信社'],['Tools','Photoshop']]},
 
   'bn-1':{cat:'Web Banner',title:'「翻弄される五輪」',desc:'共同通信社ニュースサイトvisualNews「翻弄される五輪」バナー',bg:'pb-1',
   imgUrl:'https://t-yoshiyoshi.github.io/portfolio/img/konton_gorin_top.jpg',
@@ -127,7 +127,7 @@ const md={
   imgUrl:'https://t-yoshiyoshi.github.io/portfolio/img/mongorian.jpg',
   meta:[['Year','2025'],['Type','Web Design'],['Client','共同通信社'],['Tools','Figma /HTML /css /Javascript /photoshop']]},
   
-  'il-m':{cat:'Illustration',title:'桜花（海軍）',desc:'共同通信社ニュースサイト 戦争の実相「特攻と学徒兵」内に使用されたイラスト。細かい色味や曲線も表現しました。使用ツール：Illustrator',bg:'pi-m',meta:[['Year','2025'],['Medium','Digital'],['Use','website'],['Tools','Illustrator']]},
+  'il-m':{cat:'Illustration',title:'WORLD CUP 2026',desc:'共同通信社ニュースサイト WORLD CUP 2026内の試合開始前のコンテンツに使用されたイラスト。多国の架空の選手をイメージしIllustratorを使用し、全て手描きで仕上げています。ユニフォームのシワや影も細かく入れています 使用ツール：Illustrator',bg:'pi-m',meta:[['Year','2026'],['Medium','Digital'],['Use','website'],['Tools','Illustrator']]},
 
 
   'il-1':{cat:'Illustration',title:'船井電機創業者 船井哲良',desc:'共同通信社のyoutube モヤモヤ経済学で使用されたイラスト。イラストレーターを使用し、なるべくリアルに仕上げました。',bg:'pi-1',meta:[['Year','2025'],['Medium','Digital'],['Use','youtube'],['Tools','Illustrator']]},
