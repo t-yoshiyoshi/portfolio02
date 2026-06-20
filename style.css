@@ -378,7 +378,7 @@ footer{padding:2.5rem 5vw;background:var(--bg-dark2);display:flex;justify-conten
 .pd-3{background: url(https://t-yoshiyoshi.github.io/portfolio/img/news_03.png) no-repeat center;}
 
 /* Banner — ダーク・コントラスト強め */
-.pb-m{background: url(/img/04soccer_wtop-1.jpg) center / cover no-repeat; background-size: cover;}
+.pb-m{background: url(img/04soccer_wtop-1.jpg) center / cover no-repeat; background-size: cover;}
 .pb-1{background: url(https://t-yoshiyoshi.github.io/portfolio/img/konton_gorin_top_02.jpg) center / cover no-repeat; background-size: cover;}
 .pb-2{background: url(https://t-yoshiyoshi.github.io/portfolio/img/superpower_of_chaos_top.jpg) center / cover no-repeat; background-size: cover;}
 .pb-3{background: url(https://t-yoshiyoshi.github.io/portfolio/img/yontaku_AI.jpg) center / cover no-repeat; background-size: cover;}
@@ -392,9 +392,9 @@ footer{padding:2.5rem 5vw;background:var(--bg-dark2);display:flex;justify-conten
 .pw-2{background:linear-gradient(180deg,#E0EAE8 0%,#C0D4D0 100%);}
 .pw-3{background:linear-gradient(180deg,#F4EEE8 0%,#E0D4C8 100%);}
 
-/* Illustration — ディープ・アトモスフェリック */
+/* Illustration — ディープ・アトモスフェリック  */
 .pi-m{
-  background: url(/img/fifa_w800_600.jpg) center / cover no-repeat;
+  background: url(img/fifa_w800_600.jpg) center / cover no-repeat;
   background-size: cover;}
 .pi-1{        
   background: url(https://t-yoshiyoshi.github.io/portfolio/img/funai.png) no-repeat center;
