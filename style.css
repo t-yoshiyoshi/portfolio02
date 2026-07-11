@@ -194,7 +194,7 @@ font-family: var(--serif-en);
 .wcs{font-family:var(--sans);font-size:.52rem;font-weight:300;letter-spacing:.12em;color:var(--ink-4);text-transform:uppercase;}
 
 /* browser chrome for web */
-.bwr{background:#bdbdbd;padding:.55rem .55rem 0;position:relative; height: 250px;}
+.bwr{padding:.55rem .55rem 0;position:relative; height: 250px;}
 .bdots{display:flex;gap:.25rem;margin-bottom:.35rem;}
 .bdots span{width:5px;height:5px;border-radius:50%;background:rgba(245,243,238,.14);}
 .bwin{position:relative;overflow:hidden;}
@@ -381,7 +381,7 @@ footer{padding:2.5rem 5vw;background:var(--bg-dark2);display:flex;justify-conten
 .pb-m{background: url(img/04soccer_wtop-1.jpg) center / cover no-repeat; background-size: cover;}
 .pb-1{background: url(https://t-yoshiyoshi.github.io/portfolio/img/konton_gorin_top_02.jpg) center / cover no-repeat; background-size: cover;}
 .pb-2{background: url(https://t-yoshiyoshi.github.io/portfolio/img/superpower_of_chaos_top.jpg) center / cover no-repeat; background-size: cover;}
-.pb-3{background: url(https://t-yoshiyoshi.github.io/portfolio/img/yontaku_AI.jpg) center / cover no-repeat; background-size: cover;}
+.pb-3{background: url(http://127.0.0.1:5500/img/20260625asiat.jpg) center / cover no-repeat; background-size: cover;}
 .pb-4{background: url(https://t-yoshiyoshi.github.io/portfolio/img/Premier_league07-1.jpg) center / cover no-repeat; background-size: cover;}
 
 /* Web — クリーン・ライト */
