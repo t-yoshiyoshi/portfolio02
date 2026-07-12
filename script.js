@@ -121,7 +121,7 @@ const md={
 
 
   'web-3':{cat:'Web Design',title:'家を買う、お金のリアル',
-    linkUrl:'https://sandbox.kyodo.media/ssl/demo/pc.html?sjkd_page=cont_KA6721a8dded758_KA6721a7dc2c77d',
+    linkUrl:'https://sandbox.kyodo.media/ssl/demo/pc.html?sjkd_page=cont_KA557111462a0d6_KA6a43508fc3a6d',
     idpass:{id:'shiodome', pass:'yurikamome'},
   desc:'不動産を購入した場合の、生涯にかかるお金をシミュレーションするサイト。国土交通省のAPIからの正確な情報を組込み、過去実際にあった取引価格を表示しリアルな相場を表示。Figmaでデザインからコーディングを担当。ユーザーの情報入力のinput、導線にはUI/UXを意識し、使う色も極力抑える等、ユーザーにとってなるべく不要な動作をなくすよう何度もチームで話し合い、ブラッシュアップさせながら完成させました。',bg:'pw-3',
   imgUrl:'https://t-yoshiyoshi.github.io/portfolio02/mov/anim.png',
