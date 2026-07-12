@@ -95,7 +95,7 @@ const md={
 
   'bn-2':{cat:'web Banner',title:'「トランプ2.0 混沌の超大国」',desc:'共同通信社ニュースサイトvisualNews「トランプ2.0 混沌の超大国」バナー',bg:'pb-2',meta:[['Year','2025'],['Format','1280px-730px'],['Client','共同通信社'],['Tools','photoshop']]},
 
-  'bn-3':{cat:'web Banner',title:'「YONTAKU AI」',desc:'共同通信社ニュースサイトvisualNews「YONTAKU AI」バナー',bg:'pb-3',meta:[['Year','2024'],['Format','1100px-360px'],['Client','共同通信社'],['Tools','Illustrator']]},
+  'bn-3':{cat:'web Banner',title:'アジア大会2026',desc:'共同通信社ニュースサイトvisualNews「アジア大会2026」バナー',bg:'pb-3',meta:[['Year','2026'],['Format','1100px-360px'],['Client','共同通信社'],['Tools','Photoshop']]},
 
   'bn-4':{cat:'web Banner',title:'「PREMIR LWAGUE 巨大ビジネスの誕生」',desc:'共同通信社ニュースサイトvisualNews「PREMIR LWAGUE 巨大ビジネスの誕生」バナー',bg:'pb-4',meta:[['Year','2024'],['Format','I1280px-730px'],['Client','共同通信社'],['Tools','Illustrator']]},
   'web-m':{
