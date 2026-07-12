@@ -120,12 +120,12 @@ const md={
   desc:'ミラノコルティナで開催されたパラリンピックの特設サイト。現地での活躍を写真とともにリポート。サイトデザイン、イラストも一から作成しました。',bg:'pw-2',imgUrl:'https://t-yoshiyoshi.github.io/portfolio/img/mirano_02.jpg', meta:[['Year','2026'],['Type','sports site'],['Client','共同通信社'],['Tools','Figma /HTML /css /Javascript /Illustrator /photoshop']]},
 
 
-  'web-3':{cat:'Web Design',title:'モンゴル 夏の祭典、小学生疾走',
+  'web-3':{cat:'Web Design',title:'家を買う、お金のリアル',
     linkUrl:'https://sandbox.kyodo.media/ssl/demo/pc.html?sjkd_page=cont_KA6721a8dded758_KA6721a7dc2c77d',
     idpass:{id:'shiodome', pass:'yurikamome'},
-  desc:'モンゴル最大のスポーツの祭典「ナーダム」で行われた伝統の馬レースのリポートサイト。写真と動画を沢山掲載するためパララックスを利用し、背景と前面に画像や動画を配置し、スクロールのみで全ての画像とテキストを見れるデザインにしました。',bg:'pw-3',
-  imgUrl:'https://t-yoshiyoshi.github.io/portfolio/img/mongorian.jpg',
-  meta:[['Year','2025'],['Type','Web Design'],['Client','共同通信社'],['Tools','Figma /HTML /css /Javascript /photoshop']]},
+  desc:'不動産を購入した場合の、生涯にかかるお金をシミュレーションするサイト。国土交通省のAPIからの正確な情報を組込み、過去実際にあった取引価格を表示しリアルな相場を表示。Figmaでデザインからコーディングを担当。ユーザーの情報入力のinput、導線にはUI/UXを意識し、使う色も極力抑える等、ユーザーにとってなるべく不要な動作をなくすよう何度もチームで話し合い、ブラッシュアップさせながら完成させました。',bg:'pw-3',
+  imgUrl:'https://t-yoshiyoshi.github.io/portfolio02/mov/anim.png',
+  meta:[['Year','2026'],['Type','Web Design'],['Client','共同通信社'],['Tools','Figma /HTML /css /Javascript /photoshop']]},
   
   'il-m':{cat:'Illustration',title:'WORLD CUP 2026',desc:'共同通信社ニュースサイト WORLD CUP 2026内の試合開始前のコンテンツに使用されたイラスト。多国の架空の選手をイメージしIllustratorを使用し、全て手描きで仕上げています。ユニフォームのシワや影も細かく入れています 使用ツール：Illustrator',bg:'pi-m',meta:[['Year','2026'],['Medium','Digital'],['Use','website'],['Tools','Illustrator']]},
 

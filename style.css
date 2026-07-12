@@ -190,8 +190,8 @@ font-family: var(--serif-en);
   box-shadow: 0 2px 24px rgba(28, 28, 26, .09), 0 1px 5px rgba(28, 28, 26, .06);
     height: 400px;}
 .wci-info{padding:.9rem 0 0;}
-.wct{font-family:var(--serif-jp);font-size:.8rem;font-weight:400;letter-spacing:.06em;color:var(--ink);margin-bottom:.22rem;}
-.wcs{font-family:var(--sans);font-size:.52rem;font-weight:300;letter-spacing:.12em;color:var(--ink-4);text-transform:uppercase;}
+.wct{font-family:var(--serif-jp);font-size:1rem;font-weight:400;letter-spacing:.06em;color:var(--ink);margin-bottom:.22rem;}
+.wcs{font-family:var(--sans);font-size:.52rem;font-weight:300;letter-spacing:.12em;color:var(--ink-2);text-transform:uppercase;}
 
 /* browser chrome for web */
 .bwr{padding:.55rem .55rem 0;position:relative; height: 250px;}
