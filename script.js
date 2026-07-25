@@ -101,7 +101,7 @@ const md={
   'web-m':{
     cat:'Web Design / UI',
     title:'YONTAKU AI',
-    linkUrl:'https://sandbox.kyodo.media/ssl/demo/pc.html?sjkd_page=cont_KA68ccd737c2c52_KA695dfecec1928',
+    linkUrl:'https://sandbox.kyodo.media/ssl/demo/pc.html?sjkd_page=cont_KA68ccd737c2c52_KA6a15020814f1f',
     idpass:{id:'shiodome', pass:'yurikamome'},
     desc:'AIが出題するクイズを解くエンタメサイト。スクロール連動で街のイラストが重なりタイトルが表示、UI/UXを意識し回答すると、正誤が判定され、解説と次の問題が自動スクロールされる仕組みを提案。10問解くとスコアが表示される。デザイン、コーディング、アニメーション、キャラクターデザインを担当。',
     bg:'pw-m',
