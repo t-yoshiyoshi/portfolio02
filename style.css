@@ -39,7 +39,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--serif-jp);font-weig
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:2.2rem 5vw;display:flex;justify-content:space-between;align-items:center;transition:background .5s,padding .4s;}
-nav.st{padding-top:1.3rem;padding-bottom:1.3rem;background:rgba(245,243,238,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);}
+nav.st{padding-top:1.3rem;padding-bottom:1.3rem;background: rgb(234 232 229 / 53%);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);}
 .nav-logo{font-family:var(--serif-jp);font-size:.78rem;font-weight:400;letter-spacing:.35em;color:var(--ink);text-decoration:none;}
 .nav-ul{display:flex;gap:2.8rem;list-style:none;}
 .nav-ul a{font-family:var(--sans);font-size:.8em;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);text-decoration:none;transition:color .3s;}
@@ -111,10 +111,24 @@ font-family: var(--serif-en);
 .srule{flex:1;height:1px;background:var(--line2);margin-left:.8rem;}
 
 /* TABS */
-.tabs{display:flex;gap:0;margin-bottom:5rem;border-bottom:1px solid var(--line2);overflow-x:auto;}
-.tab{padding:1rem 2.2rem;font-family:var(--sans);font-size:1em;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);background:none;border:none;cursor:none;position:relative;transition:color .3s;white-space:nowrap;}
+.tabs{background: linear-gradient(45deg, #ead0da, #ffe1ecc7, #3affce69);}
+.tab{padding: 1rem 2.2rem;
+    font-family: var(--sans);
+    font-size: 1em;
+    font-weight: 400;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #63605c;
+    background: none;
+    border: none;
+    cursor: none;
+    position: relative;
+    transition: color .3s;
+    white-space: nowrap;}
 .tab::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:var(--ink);transform:scaleX(0);transition:transform .4s var(--ease);}
-.tab.on{color:var(--ink);}
+.tab.on{    
+  color: #333;
+    font-weight: 600;}
 .tab.on::after{transform:scaleX(1);}
 .tab:hover{color:var(--ink-2);}
 
