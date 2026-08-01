@@ -60,14 +60,15 @@
     <div class="srule"></div>
   </div>
   <div class="tabs">
-    <button class="tab on" data-tab="dtp">DTP</button>
-    <button class="tab" data-tab="banner">バナー</button>
+    <button class="tab on" data-tab="banner">バナー</button>
     <button class="tab" data-tab="web">Web</button>
+    <button class="tab " data-tab="dtp">DTP</button>
     <button class="tab" data-tab="illust">イラスト</button>
+    <button class="tab" data-tab="logo">ロゴ</button>
   </div>
 
   <!-- ===== DTP ===== -->
-  <div class="panel on" id="p-dtp">
+  <div class="panel" id="p-dtp">
     <p class="plbl rv">DTP &nbsp;—&nbsp; Print &amp; Editorial Design</p>
     <div class="feat rv" onclick="openM('dtp-m')">
       <div class="fi">
@@ -114,7 +115,7 @@
   </div>
 
   <!-- ===== Banner ===== -->
-  <div class="panel" id="p-banner">
+  <div class="panel on" id="p-banner">
     <p class="plbl rv">バナー &nbsp;—&nbsp; Web &amp; Digital Advertising</p>
     <div class="feat rv" onclick="openM('bn-m')">
       <div class="fi">
@@ -143,6 +144,22 @@
     </div>
     <div class="dvd"></div>
     <div class="wg c4 rv">
+      <div class="wc ban" onclick="openM('bn-5')">
+        <div class="wci"><div><div class="im pb-5" style="display:flex;align-items:center;justify-content:center; background: url(img/MLB_banner07.jpg) center / cover no-repeat; background-size: cover;"><div style="font-family:'EB Garamond',serif;font-size:1rem;color:rgba(245,243,238,.65);font-weight:300;letter-spacing:.1em;text-align:center;line-height:1.4;"></div></div></div></div>
+        <div class="wci-info"><p class="wct">MLB 速報ライブ</p><p class="wcs"></p></div>
+      </div>
+
+
+      <div class="wc ban" onclick="openM('bn-0')">
+        <div class="wci"><div><div class="im pb-0" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.35rem;background: url(img/numbers_in_daily_life_640X400.jpg) center / cover no-repeat; background-size: cover;"><div style="font-family:'Jost',sans-serif;font-size:.42rem;letter-spacing:.25em;color:rgba(200,169,110,.55);text-transform:uppercase;">Luxury</div><div style="font-family:'EB Garamond',serif;font-size:1rem;color:rgba(245,243,238,.6);font-weight:300;"></div></div></div></div>
+        <div class="wci-info"><p class="wct">藤岡みなみ　暮らしのすうじ</p><p class="wcs"></p></div>
+      </div>
+
+      <div class="wc ban" onclick="openM('bn-3')">
+        <div class="wci"><div><div class="im pb-3" style="display:flex;align-items:center;justify-content:center; background: url(	https://t-yoshiyoshi.github.io/portfolio02/img/20260625asiat.jpg) center / cover no-repeat; background-size: cover;"><div style="font-family:'EB Garamond',serif;font-size:1rem;color:rgba(245,243,238,.65);font-weight:300;letter-spacing:.1em;text-align:center;line-height:1.4;"></div></div></div></div>
+        <div class="wci-info"><p class="wct">アジア大会2026</p><p class="wcs"></p></div>
+      </div>
+
       <div class="wc ban" onclick="openM('bn-1')">
         <div class="wci"><div><div class="im pb-1" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.35rem;background: url(https://t-yoshiyoshi.github.io/portfolio/img/konton_gorin_top_02.jpg) center / cover no-repeat; background-size: cover;"><div style="font-family:'Jost',sans-serif;font-size:.42rem;letter-spacing:.25em;color:rgba(200,169,110,.55);text-transform:uppercase;">Luxury</div><div style="font-family:'EB Garamond',serif;font-size:1rem;color:rgba(245,243,238,.6);font-weight:300;"></div></div></div></div>
         <div class="wci-info"><p class="wct">翻弄される五輪</p><p class="wcs"></p></div>
@@ -152,10 +169,11 @@
         <div class="wci"><div><div class="im pb-2" style="display:flex;align-items:center;justify-content:center; background: url(https://t-yoshiyoshi.github.io/portfolio/img/superpower_of_chaos_top.jpg) center / cover no-repeat; background-size: cover;"><div style="font-family:'EB Garamond',serif;font-size:1rem;color:rgba(245,243,238,.65);font-weight:300;letter-spacing:.12em;text-align:center;line-height:1.4;"></div></div></div></div>
         <div class="wci-info"><p class="wct">トランプ2.0 混沌の超大国</p><p class="wcs"></p></div>
       </div>
-      <div class="wc ban" onclick="openM('bn-3')">
-        <div class="wci"><div><div class="im pb-3" style="display:flex;align-items:center;justify-content:center; background: url(	https://t-yoshiyoshi.github.io/portfolio02/img/20260625asiat.jpg) center / cover no-repeat; background-size: cover;"><div style="font-family:'EB Garamond',serif;font-size:1rem;color:rgba(245,243,238,.65);font-weight:300;letter-spacing:.1em;text-align:center;line-height:1.4;"></div></div></div></div>
-        <div class="wci-info"><p class="wct">アジア大会2026</p><p class="wcs"></p></div>
+      <div class="wc ban" onclick="openM('bn-00')">
+        <div class="wci"><div><div class="im pb-01" style="display:flex;align-items:center;justify-content:center; background: url(img/baseball_Live04.jpg) center / cover no-repeat; background-size: cover;"><div style="font-family:'EB Garamond',serif;font-size:1rem;color:rgba(245,243,238,.65);font-weight:300;letter-spacing:.1em;text-align:center;line-height:1.4;"></div></div></div></div>
+        <div class="wci-info"><p class="wct">MLB 速報ライブ</p><p class="wcs"></p></div>
       </div>
+
       <div class="wc ban" onclick="openM('bn-4')">
         <div class="wci"><div><div class="im pb-4" style="display:flex;align-items:center;justify-content:center; background: url(https://t-yoshiyoshi.github.io/portfolio/img/Premier_league07-1.jpg) center / cover no-repeat; background-size: cover;"><div style="font-family:'EB Garamond',serif;font-size:1rem;color:rgba(28,28,26,.4);font-style:italic;letter-spacing:.1em;text-align:center;line-height:1.4;"></div></div></div></div>
         <div class="wci-info"><p class="wct">PREMIR LWAGUE</p><p class="wcs"></p></div>
@@ -255,6 +273,13 @@ Figma /HTML /css /Javascript /photoshop</p></div>
     </div>
     <div class="dvd"></div>
     <div class="wg rv">
+
+      <div class="wc" onclick="openM('il-0')">
+        <div class="wci"><div><div class="im pi-0" style="position:relative;
+        "><div class="ilov"></div></div></div></div>
+        <div class="wci-info"><p class="wct">MLB 速報ライブ</p><p class="wcs">Digital / Procreate</p></div>
+      </div>
+
       <div class="wc" onclick="openM('il-1')">
         <div class="wci"><div><div class="im pi-1" style="position:relative;
         "><div class="ilov"></div></div></div></div>
@@ -270,6 +295,46 @@ Figma /HTML /css /Javascript /photoshop</p></div>
       </div>
     </div>
   </div>
+
+  <!-- ===== Logo ===== -->
+<div class="panel" id="p-logo">
+  <p class="plbl rv">ロゴ &nbsp;—&nbsp; Logo Design</p>
+
+  <div class="feat rv" onclick="openM('logo-m')">
+    <div class="fi">
+      <div class="fi-in">
+        <div class="pl-m pp" style="position:relative;"></div>
+      </div>
+      <div class="fbadge">Selected Work</div>
+    </div>
+    <div class="finfo">
+      <p class="fcat">Logo / Branding</p>
+      <h3 class="ftitle">photo_story</h3>
+      <p class="fdesc">共同通信写真部が撮影の裏舞台を紹介する『Photo story』内で使用されているlogoを作成しました。カメラを意識してフォーカスの絞りを外枠にし文字がなくても写真やカメラを連想するようなロゴにしてみました。使用動画：https://www.youtube.com/watch?v=5pfLreC14T4</p>
+      <div class="ftags"><span class="tag">Illustrator</span><span class="tag">Branding</span></div>
+      <a class="bmore" href="javascript:void(0)" onclick="openM('logo-m')">View Project <span class="barr">→</span></a>
+    </div>
+  </div>
+
+  <div class="dvd"></div>
+
+  <div class="wg rv">
+    <div class="wc" onclick="openM('logo-1')">
+      <div class="wci"><div><div class="im pl-1"></div></div></div>
+      <div class="wci-info"><p class="wct">「よみトレ」ロゴ</p><p class="wcs">Illustrator</p></div>
+    </div>
+    <!--<div class="wc" onclick="openM('logo-2')">
+      <div class="wci"><div><div class="im pl-2"></div></div></div>
+      <div class="wci-info"><p class="wct">ロゴ作品2</p><p class="wcs">Illustrator</p></div>
+    </div>
+    <div class="wc" onclick="openM('logo-3')">
+      <div class="wci"><div><div class="im pl-3"></div></div></div>
+      <div class="wci-info"><p class="wct">ロゴ作品3</p><p class="wcs">Illustrator</p></div>
+    </div>-->
+
+  </div>
+</div>
+
 </section>
 
 <!-- About -->
@@ -310,6 +375,8 @@ Figma /HTML /css /Javascript /photoshop</p></div>
       </div>
     </div>
   </div>
+
+
 </section>
 
 <!-- Contact 

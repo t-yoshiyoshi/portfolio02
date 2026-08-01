@@ -89,13 +89,26 @@ const md={
 
   'bn-m':{cat:'Web Banner',title:'「WORLD CUP2026」',desc:'共共同通信社ニュースサイトのWORLD CUP速報と現地リポートのサイトのバナーです。使用できる素材が、選手の画像と、サッカーボールのみで作成を依頼されました。使える素材が少ないため、日本の国旗を使用することを避けるようにとのことでしたが、色味を他の要素と全体的に馴染ませるようにし背景デザインとしてそこに注目されないようにしました。躍動的な背景とともに選手の動きやカラー処理でまとまりのあるバナーに仕上げました。（製作期間2日）同通信社ニュースサイトvisualNews「戦争と表現」バナー。作家のインタビューや紛争地の今をルポ。それぞれの背景を掛け合わせ、テーマの雰囲気に寄せました。',bg:'pb-m',meta:[['Year','2026'],['Sizes','1280px-730px'],['Client','共同通信社'],['Tools','Photoshop']]},
 
+  'bn-5':{cat:'Web Banner',title:'MLB 速報ライブ',desc:'共同通信社visualNews MLB 速報ライブ',bg:'pb-0',
+  imgUrl:'img/MLB_banner07.jpg',
+  meta:[['Year','2026'],['Sizes','800px-99px'],['Client','共同通信社'],['Tools','Photoshop']]},
+
+  'bn-0':{cat:'Web Banner',title:'藤岡みなみ　暮らしのすうじ',desc:'共同通信社デジタルコラム　暮らしのすうじ　バナー',bg:'pb-0',
+  imgUrl:'img/numbers_in_daily_life_640X400.jpg',
+  meta:[['Year','2026'],['Sizes','640px-4000px'],['Client','共同通信社'],['Tools','Photoshop']]},
+
+  'bn-00':{cat:'Web Banner',title:'MLB 速報ライブ',desc:'共同通信社ニュースサイトvisualNews「MLB 速報ライブ」バナー',bg:'pb-00',
+  imgUrl:'img/baseball_Live04.jpg',
+  meta:[['Year','2026'],['Sizes','1280px-730px'],['Client','共同通信社'],['Tools','Photoshop']]},
+
+  'bn-3':{cat:'web Banner',title:'アジア大会2026',desc:'共同通信社ニュースサイトvisualNews「アジア大会2026」バナー',bg:'pb-3',meta:[['Year','2026'],['Format','1100px-360px'],['Client','共同通信社'],['Tools','Photoshop']]},
+
   'bn-1':{cat:'Web Banner',title:'「翻弄される五輪」',desc:'共同通信社ニュースサイトvisualNews「翻弄される五輪」バナー',bg:'pb-1',
   imgUrl:'https://t-yoshiyoshi.github.io/portfolio/img/konton_gorin_top.jpg',
   meta:[['Year','2025'],['Sizes','1280px-730px'],['Client','共同通信社'],['Tools','Photoshop']]},
 
   'bn-2':{cat:'web Banner',title:'「トランプ2.0 混沌の超大国」',desc:'共同通信社ニュースサイトvisualNews「トランプ2.0 混沌の超大国」バナー',bg:'pb-2',meta:[['Year','2025'],['Format','1280px-730px'],['Client','共同通信社'],['Tools','photoshop']]},
 
-  'bn-3':{cat:'web Banner',title:'アジア大会2026',desc:'共同通信社ニュースサイトvisualNews「アジア大会2026」バナー',bg:'pb-3',meta:[['Year','2026'],['Format','1100px-360px'],['Client','共同通信社'],['Tools','Photoshop']]},
 
   'bn-4':{cat:'web Banner',title:'「PREMIR LWAGUE 巨大ビジネスの誕生」',desc:'共同通信社ニュースサイトvisualNews「PREMIR LWAGUE 巨大ビジネスの誕生」バナー',bg:'pb-4',meta:[['Year','2024'],['Format','I1280px-730px'],['Client','共同通信社'],['Tools','Illustrator']]},
   'web-m':{
@@ -130,10 +143,24 @@ const md={
   'il-m':{cat:'Illustration',title:'WORLD CUP 2026',desc:'共同通信社ニュースサイト WORLD CUP 2026内の試合開始前のコンテンツに使用されたイラスト。多国の架空の選手をイメージしIllustratorを使用し、全て手描きで仕上げています。ユニフォームのシワや影も細かく入れています 使用ツール：Illustrator',bg:'pi-m',meta:[['Year','2026'],['Medium','Digital'],['Use','website'],['Tools','Illustrator']]},
 
 
+  'il-0':{cat:'Illustration',title:'MLB 2026',desc:'MLB 速報ライブで使用された大谷選手のバッティングイラスト',bg:'pi-0',meta:[['Year','2026'],['Medium','Digital'],['Use','website'],['Tools','Illustrator']]},
+
   'il-1':{cat:'Illustration',title:'船井電機創業者 船井哲良',desc:'共同通信社のyoutube モヤモヤ経済学で使用されたイラスト。イラストレーターを使用し、なるべくリアルに仕上げました。',bg:'pi-1',meta:[['Year','2025'],['Medium','Digital'],['Use','youtube'],['Tools','Illustrator']]},
 
   'il-2':{cat:'Illustration',title:'ガダルカナル島の戦い',desc:'共同通信社ニュースサイトの「戦争の実相」に使用したイラスト。ガダルカナル島はジャングルで日が当たらないため全体的に暗く作成しました。',bg:'pi-2',meta:[['Year','2025'],['Medium','Digital'],['Use','website'],['Tools','Illustrator']]},
   'il-3':{cat:'Illustration',title:'ニュースがわかるキーワード',desc:'共同通信社の「ニュースがわかるキーワード」内で使用されたイラスト。政治献金、裏金がテーマのもの',bg:'pi-3',meta:[['Year','2024'],['Medium','Digital'],['Use','website'],['Tools','Illustrator']]},
+
+  'logo-m':{
+  cat:'Logo / Branding',
+  title:'photo_story',
+  desc:'共同通信写真部が撮影の裏舞台を紹介する『Photo story』内で使用されているlogoを作成しました。カメラを意識してフォーカスの絞りを外枠にし文字がなくても写真やカメラを連想するようなロゴにしてみました。使用動画：https://www.youtube.com/watch?v=5pfLreC14T4',
+  bg:'pl-m',
+  imgUrl:'img/photo_story_black.png',
+  meta:[['Year','2026'],['Medium','Digital'],['Use','Branding'],['Tools','Illustrator']]
+},
+'logo-1':{cat:'Logo',title:'「よみトレ」ロゴ',desc:'共同通信社の文章の読解力を強化する目的で製作されたトレーニングサイトのロゴ。シンプルなサイトになっているので、ロゴもタイトルのみのシンプルな者に仕上げました',bg:'pl-1',meta:[['Year','2026'],['Medium','Digital'],['Use','Branding'],['Tools','Illustrator']]},
+//'logo-2':{cat:'Logo',title:'ロゴ作品2',desc:'説明文',bg:'pl-2',meta:[['Year','2026'],['Medium','Digital'],['Use','Branding'],['Tools','Illustrator']]}'logo-3':{cat:'Logo',title:'ロゴ作品3',desc:'説明文',bg:'pl-3',meta:[['Year','2026'],['Medium','Digital'],['Use','Branding'],['Tools','Illustrator']]},
+
 };
  
 /* ── openModal ──

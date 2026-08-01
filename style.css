@@ -384,7 +384,7 @@ footer{padding:2.5rem 5vw;background:var(--bg-dark2);display:flex;justify-conten
    ========================================= */
 /* DTP — 温かいグレージュ、紙の質感 */
 .pd-m{
-  background: url(https://t-yoshiyoshi.github.io/portfolio/img/robo04.png) no-repeat center;
+  background: url(https://t-yoshiyoshi.github.io/portfolio/img/robo04.png) center center / 80% auto no-repeat;;
   background-size: cover;}
 .pd-1{background:url(https://t-yoshiyoshi.github.io/portfolio/2023_netuden.jpg
 ) center/cover no-repeat; background-color:#C8C4BC;}
@@ -393,6 +393,10 @@ footer{padding:2.5rem 5vw;background:var(--bg-dark2);display:flex;justify-conten
 
 /* Banner — ダーク・コントラスト強め */
 .pb-m{background: url(img/04soccer_wtop-1.jpg) center / cover no-repeat; background-size: cover;}
+.pb-5{background: url(https://t-yoshiyoshi.github.io/portfolio/img/MLB_banner07.jpg) center / cover no-repeat; background-size: cover;}
+
+.pb-0{background: url(https://t-yoshiyoshi.github.io/portfolio/img/konton_gorin_top_02.jpg) center / cover no-repeat; background-size: cover;}
+.pb-00{background: url(img/baseball_Live04.jpg) center / cover no-repeat; background-size: cover;}
 .pb-1{background: url(https://t-yoshiyoshi.github.io/portfolio/img/konton_gorin_top_02.jpg) center / cover no-repeat; background-size: cover;}
 .pb-2{background: url(https://t-yoshiyoshi.github.io/portfolio/img/superpower_of_chaos_top.jpg) center / cover no-repeat; background-size: cover;}
 .pb-3{background: url(http://127.0.0.1:5500/img/20260625asiat.jpg) center / cover no-repeat; background-size: cover;}
@@ -408,7 +412,9 @@ footer{padding:2.5rem 5vw;background:var(--bg-dark2);display:flex;justify-conten
 
 /* Illustration — ディープ・アトモスフェリック  */
 .pi-m{
-  background: url(img/fifa_w800_600.jpg) center / cover no-repeat;
+  background: url(img/fifa_w800_600.jpg) center center / 80% auto no-repeat;}
+.pi-0{        
+  background: url(img/haimen.png) no-repeat center;
   background-size: cover;}
 .pi-1{        
   background: url(https://t-yoshiyoshi.github.io/portfolio/img/funai.png) no-repeat center;
@@ -417,6 +423,13 @@ footer{padding:2.5rem 5vw;background:var(--bg-dark2);display:flex;justify-conten
   background-size: cover;}
 .pi-3{background: url(https://t-yoshiyoshi.github.io/portfolio/img/20250107_news03.jpg) no-repeat center;
   background-size: cover;}
+
+/* Logo — シンプル・モノトーン基調 */
+.pl-m{background: url(img/photo_story_black.png) center center / 80% auto no-repeat;}
+.pl-1{background: url(img/yomitore_logo.png) center center / 80% auto no-repeat;}
+/*.pl-2{background: url(img/logo_02.jpg) center / cover no-repeat;}
+.pl-3{background: url(img/logo_03.jpg) center / cover no-repeat;}*?
+
 
 /* DTP用ペーパーライン */
 .pp::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 29px,rgba(28,28,26,.032) 30px);pointer-events:none;}
